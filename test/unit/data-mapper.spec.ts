@@ -1,4 +1,6 @@
 import { mock, MockProxy } from 'vitest-mock-extended'
+import { beforeEach, describe, it, expect } from 'vitest'
+
 import {
   DataMapper,
   QueryFactory,

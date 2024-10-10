@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest'
 import { PostgresQueryAdapter } from '../../src'
 import { QueryAST } from '../../src/query-ast'
 

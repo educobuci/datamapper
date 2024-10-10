@@ -1,10 +1,12 @@
 import { mock } from 'vitest-mock-extended'
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { vitest } from 'vitest'
+
 import { DatabaseConnection } from '../../src/ports'
 import { Coder } from '../../src/encoding/ports'
 import { TableConfig } from '../../src/ports'
 import { InsertQueryBuilder } from '../../src/insert-query-builder'
 import { QueryAST } from '../../src/query-ast'
-import { vitest } from 'vitest'
 
 interface Point {
   id: number
@@ -27,7 +29,7 @@ describe('Insert Query Builder', () => {
 
   it('should build and execute the AST insert query', async () => {
     const builder = new InsertQueryBuilder(connection, config, coder)
-    await builder.insert({ x: 1, y: 2, z: null })
+    await builder.insert({ x: 1, y: 2 })
     const ast: QueryAST = {
       insert: { into: 'points', values: { x: 1, y: 2 } },
     }

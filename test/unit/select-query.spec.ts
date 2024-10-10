@@ -4,6 +4,7 @@ import { DatabaseConnection } from '../../src/ports'
 import { SelectQueryBuilder } from '../../src/select-query-builder'
 import { QueryAST } from '../../src/query-ast'
 import { Product } from '../support'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 describe('Query', () => {
   let connection: MockProxy<DatabaseConnection>

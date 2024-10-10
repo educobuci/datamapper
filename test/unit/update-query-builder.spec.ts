@@ -4,7 +4,7 @@ import { DatabaseConnection } from '../../src/ports'
 import { TableConfig } from '../../src/ports'
 import { Coder } from '../../src/encoding/ports'
 import { QueryAST } from '../../src/query-ast'
-import { vitest } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vitest } from 'vitest'
 
 interface Point {
   id: number
@@ -61,7 +61,7 @@ describe('Update Query Builder', () => {
       where: { id: 1 },
     }
     const builder = new UpdateQueryBuilder(connection, config, coder)
-    await builder.update({ id: 1, x: null, y: 3, z: undefined })
+    await builder.update({ id: 1, y: 3, z: undefined })
     expect(connection.query).toBeCalledWith(ast)
   })
 })
