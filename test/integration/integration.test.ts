@@ -1,3 +1,5 @@
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
+
 import { Codable, DataMapper } from '../../src'
 import {
   Product,
@@ -100,7 +102,7 @@ describe('Data Mapper', () => {
       }),
     }
     const MoneyProducts = new DataMapper<MoneyProduct>(
-      queryFactory(database.connection, codable)
+      queryFactory(database.connection, codable),
     )
     const prod = await MoneyProducts.save({
       id: 1,
@@ -113,7 +115,7 @@ describe('Data Mapper', () => {
 
   it('should allow finding a record by id', async () => {
     const prod = await Products.find(1)
-    expect(prod.id).toEqual(1)
+    expect(prod?.id).toEqual(1)
   })
 
   it('should allow querying a column by multiple values (WHERE IN/ANY)', async () => {
@@ -124,6 +126,6 @@ describe('Data Mapper', () => {
 
   it('should find one record by any column', async () => {
     const product = await Products.findBy({ name: 'Apple Watch Series 8' })
-    expect(product.id).toEqual(1)
+    expect(product?.id).toEqual(1)
   })
 })
