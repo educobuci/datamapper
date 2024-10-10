@@ -1,6 +1,12 @@
-import { mock, MockProxy } from 'jest-mock-extended'
-import { DataMapper, QueryFactory, InsertQuery, UpdateQuery, SelectQuery } from '../../src'
-import {  } from '../../src/'
+import { mock, MockProxy } from 'vitest-mock-extended'
+import {
+  DataMapper,
+  QueryFactory,
+  InsertQuery,
+  UpdateQuery,
+  SelectQuery,
+} from '../../src'
+import {} from '../../src/'
 import { Product } from '../support'
 
 let queryFactory: MockProxy<QueryFactory<Product>>

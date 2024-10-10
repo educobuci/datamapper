@@ -1,4 +1,4 @@
-import { mock, MockProxy } from 'jest-mock-extended'
+import { mock, MockProxy } from 'vitest-mock-extended'
 import { Coder, SelectQuery } from '../../src'
 import { DatabaseConnection } from '../../src/ports'
 import { SelectQueryBuilder } from '../../src/select-query-builder'
@@ -18,7 +18,7 @@ describe('Query', () => {
     query = new SelectQueryBuilder<Product>(
       connection,
       { tableName: 'products' },
-      coder
+      coder,
     )
   })
 
@@ -95,7 +95,7 @@ describe('Query', () => {
     const countQuery = new SelectQueryBuilder(
       conn,
       { tableName: 'products' },
-      coder
+      coder,
     )
     const ast: QueryAST = {
       select: { from: 'products', columns: ['COUNT(*)'] },

@@ -1,9 +1,10 @@
-import { mock } from 'jest-mock-extended'
+import { mock } from 'vitest-mock-extended'
 import { UpdateQueryBuilder } from '../../src/update-query-builder'
 import { DatabaseConnection } from '../../src/ports'
 import { TableConfig } from '../../src/ports'
 import { Coder } from '../../src/encoding/ports'
 import { QueryAST } from '../../src/query-ast'
+import { vitest } from 'vitest'
 
 interface Point {
   id: number
@@ -27,7 +28,7 @@ describe('Update Query Builder', () => {
   })
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vitest.clearAllMocks()
   })
 
   it('should encode the record', async () => {
